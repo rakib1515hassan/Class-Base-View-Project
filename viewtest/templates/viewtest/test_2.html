@@ -1,0 +1,73 @@
+{% extends "test.html" %}
+{% block title %}TestView | test-2{% endblock title %}
+{% block body %}
+<section class="intro">
+    <div class="bg-image h-100 border" style="background-color: #e2e2e2;">
+        <h1 class="text-center">Every Name Store in List</h1>
+        <div class="mask d-flex mt-5 h-100">
+            <div class="container border">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <h1 class="text-center mb-4 fs-3 fw-light" style="font-family: poppins;">Insurt Your Name in List</h1>
+                        <form class="form-group" method="POST">
+                            {% csrf_token %}
+                            <input type="text" id="name" placeholder="Enter Your Name" name="name" class="form-control mb-2 border">
+                    
+                            <button type="submit" class="btn w-100 btn-success">Enroll</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-8 col-md-12 col-sm-12">
+                        <h1 class="text-center mb-4 fs-3 fw-light" style="font-family: poppins;">All Name is here</h1>
+                        <div class="card shadow-2-strong border" style="background-color: #ffffff;">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-borderless mb-0">
+                                        <tbody id="tbody">
+                                            <tr>
+                                            {% for name in std %}
+                                                <td>{{forloop.counter}}</td>
+                                                <td id="s_name">{{name}}</td>
+                                            {% endfor %}
+                                            </tr>                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock body %}
+<!-- <body>
+    
+    <div class="container mt-5">
+        <form method="POST">
+            {% csrf_token %}
+                <div>
+                    <label for="name">Name</label>
+                    
+                </div><br>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <br><br>
+        
+            <table>
+                <tr>
+                    <th>Name:</th>
+                </tr>
+                <tr>
+                    {% for i in std %}
+                        <td>{{i}}, </td><span>  </span>
+                    {% endfor %}
+                </tr>
+            </table>
+    </div>
+    
+</body> -->

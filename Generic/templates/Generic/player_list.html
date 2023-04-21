@@ -1,0 +1,65 @@
+{% extends "generic.html" %}
+{% load static %}Render
+{% block title %}Gen_1{% endblock title %}
+{% block body %}
+
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-lg-10 col-md-12 col-sm-12">
+            <h1 class="text-center mb-4 fs-3 fw-light" style="font-family: poppins;">All Players - (ListView)</h1>
+            <h3 class="text-center mb-4 fs-3 fw-light" style="font-family: poppins;">Default Page Render</h3>
+            <div class="card shadow-2-strong border" style="background-color: #ffffff;">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped mb-0">
+                            <thead>
+                            <tr>
+
+                                <th scope="col">S/N</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">Play</th>
+                                <th scope="col">Position</th>                                
+                                <th scope="col">ID</th>
+                            </tr>
+                            </thead>
+
+                            <tbody id="tbody">
+
+                            {% for p in player_list %}
+
+                            <tr>
+
+                                <td>{{forloop.counter}}</td>
+                                {% if p.pic %}
+                                    <td><img src="{{p.pic.url}}" alt="" style="width:40px; height: 40px; border-radius: 100%;"></td>
+                                {% else %}
+                                    <td><img src="{% static 'img/default_pic.jpg' %}" alt="" style="width:40px; height: 40px; border-radius: 100%;"></td>
+                                {% endif %}
+                                <td id="s_name">{{p.name}}</td>
+                                <td id="s_email">{{p.age}}</td>
+                                <td id="s_subject">{{p.play}}</td>
+                                <td id="s_subject">{{p.position}}</td>
+                                <td>{{p.id}}</td>
+                                <td>
+                                    <a class="btn btn-success btn-sm" href="{% url 'gen_2' p.id p.slug %}">Detail</a>
+                                    <a class="btn btn-warning btn-sm" href="{% url 'UpdatePlayer' p.id %}">Update</a>
+                                    <a class="btn btn-danger btn-sm" href="{% url 'DeletePlayer' p.id %}">Delete</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+
+                            </tbody>
+                            <a class="btn btn-danger btn-sm" href="{% url 'DeleteAllPlayer' %}" style="float: right; margin-right: 90px;">Delete All Player</a>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock body %}

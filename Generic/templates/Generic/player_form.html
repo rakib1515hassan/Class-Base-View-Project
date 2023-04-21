@@ -1,0 +1,72 @@
+{% extends "generic.html" %}
+{% block title %}Deatails View{% endblock title %}
+{% block body %}
+
+<div class="container">
+       {% if upd %}
+              <h1 class="text-center">Update View</h1>
+       {% else %}
+              <h1 class="text-center">Create View</h1>
+       {% endif %}
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-12 col-sm-12">
+              {% if upd %}
+                     <h1 class="text-center mb-4 fs-3 fw-light" style="font-family: poppins;">Update Player ID-{{upd.id}}</h1>
+              {% else %}
+                     <h1 class="text-center mb-4 fs-3 fw-light" style="font-family: poppins;">Add New Player</h1>
+              {% endif %}
+
+            {% if upd %}
+            <form class="form-group" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+                <input type="hidden" id="stuid" name="stuid">
+                <input type="text" name="name" id="name" class="form-control mb-2 border"
+                       placeholder="Full Name" value="{{upd.name}}">
+                {% if upd.pic %}
+                     <img src="{{ upd.pic.url }}" alt="" style="width: 80px; height: 80px;">
+                     <input type="file" name="pic" id="pic" class="form-control mb-2 border"
+                       placeholder="Set Yor Image" value="{{upd.pic.url}}">
+                {% else %}
+                     <input type="file" name="pic" id="pic" class="form-control mb-2 border"
+                       placeholder="Set Yor Image">
+                {% endif %}
+                <input type="number" name="age" id="age" class="form-control mb-2 border"
+                       placeholder="Age" value="{{upd.age}}">
+                <input type="text" name="play" id="play" class="form-control mb-2 border"
+                       placeholder="Play" value="{{upd.play}}">
+                <input type="text" name="position" id="position" class="form-control mb-2 border"
+                       placeholder="Position" value="{{upd.position}}">
+                <button type="submit" class="btn btn-warning w-100">Update</button>
+                <a href="{% url 'gen_1' %}" class="btn btn-danger w-100 btn mt-3">Cancel</a>
+            </form>
+            {% else %}
+            <form class="form-group" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+                <input type="hidden" id="stuid" name="stuid">
+                <input type="text" name="name" id="name" class="form-control mb-2 border"
+                       placeholder="Full Name">
+                <input type="file" name="pic" id="pic" class="form-control mb-2 border"
+                       placeholder="Set Yor Image" required>
+                <input type="number" name="age" id="age" class="form-control mb-2 border"
+                       placeholder="Age">
+                <input type="text" name="play" id="play" class="form-control mb-2 border"
+                       placeholder="Play">
+                <input type="text" name="position" id="position" class="form-control mb-2 border"
+                       placeholder="Position">
+                <button type="submit" class="btn btn-primary w-100">Enroll</button>
+            </form>
+            {% endif %}
+
+            <!-- <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="btn w-100 btn-success">Enroll</button>
+                <a href="{% url 'gen_1' %}" class="btn btn-danger w-100 btn mt-3">Cancel</a>
+            </form> -->
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock body %}

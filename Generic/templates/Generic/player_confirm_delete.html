@@ -1,0 +1,19 @@
+{% extends "generic.html" %}
+{% block title %}Gen_1{% endblock title %}
+{% block body %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-12 col-sm-12" style="margin-top: 15%;">
+            <form method="POST">
+                {% csrf_token %}
+                <p><b>{{player.name}}</b> Are You Sure To Delete Your Profil ? </p>
+                <p>If You Want Then Press <b>Yes</b> Else <b>Cancel</b> </p>
+                <button type="submit" class="btn btn-danger">Yes</button>
+                <a class="btn btn-warning" href="{% url 'gen_1' %}">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

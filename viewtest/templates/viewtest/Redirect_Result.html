@@ -1,0 +1,29 @@
+{% extends "test.html" %}
+{% block title %}TestView | RedirectView-1{% endblock title %}
+{% block body %}
+    <div class="container mt-5">
+      <p>এখানে আমি href="{ url 'RedirectView_6' 15 }  id টি pass করেছি, এবং RedirectView মাধ্যমে অন্য একটি পেজে id টি pass করেছি এর সাথে কিছু  তথ্য প্রেরন করেছি </p>
+
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Profesion</th>
+                <th scope="col">Address</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">{{id}}</th>
+                <td>{{name}}</td>
+                <td>{{Profesion}}</td>
+                <td>{{address}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    
+</body>
+</html>
+{% endblock body %}

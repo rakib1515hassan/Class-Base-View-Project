@@ -1,0 +1,176 @@
+{% extends "home.html" %}
+{% block title %}Home{% endblock title %}
+{% block Nave %}
+    {% comment %} <!-- ---------------------------------Nave Start----------------------------------------------- --> {% endcomment %}
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home' %}">ClassView</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="btn btn-primary active" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="btn btn-danger active" aria-current="page" href="{% url 'test' %}">Class Base View</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    {% comment %} <!-- ---------------------------------Nave End------------------------------------------------- --> {% endcomment %}
+{%  endblock Nave %}
+
+
+{% block body %}
+<div class="container mt-5">
+  
+
+  <table class="table table-sm">
+    <thead class="table table-sm table-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Test Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row" class="text-danger">1</th>
+        <td class="text-danger"><b>HttpResponse</b></td>
+        <td>Passing some html tag</td>
+        <td ><a class="btn btn-danger active btn-sm" aria-current="page" href="{% url 'TestViewClass_1' %}">Test-1</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-danger">2</th>
+        <td class="text-danger"><b>HttpResponse</b></td>
+        <td>Variable value return from class</td>
+        <td ><a class="btn btn-danger active btn-sm" aria-current="page" href="{% url 'TestViewClass_2' %}">Test-2</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-danger">3</th>
+        <td class="text-danger"><b>HttpResponse</b></td>
+        <td>Variable value return from as_view()</td>
+        <td ><a class="btn btn-danger active btn-sm" aria-current="page" href="{% url 'TestViewClass_3' %}">Test-3</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-danger">4</th>
+        <td class="text-danger"><b>HttpResponse</b></td>
+        <td>Sub Class that inherit (TestViTest-2)</td>
+        <td ><a class="btn btn-danger active btn-sm" aria-current="page" href="{% url 'SubClass' %}">Test-4</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-danger">5</th>
+        <td class="text-danger"><b>HttpResponse</b></td>
+        <td>When we send multiple data by HttpResponse then we use Jeson formet</td>
+        <td ><a class="btn btn-danger active btn-sm" aria-current="page" href="{% url 'TestViewClass_3_1' %}">Test-5</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-primary">6</th>
+        <td class="text-primary"><b>Class base View</b></td>
+        <td>Here i take some information and store in Python Dictionary and then display information</td>
+        <td><a class="btn btn-primary active btn-sm" aria-current="page" href="{% url 'TestViewClass_4' %}">View-4</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-primary">7</th>
+        <td class="text-primary"><b>Class base View</b></td>
+        <td>Here i take some Name and Store in Python List and then Display The Name</td>
+        <td> <a class="btn btn-primary active btn-sm" aria-current="page" href="{% url 'TestViewClass_5' %}">View-5</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-primary">8</th>
+        <td class="text-primary"><b>Class base View</b></td>
+        <td>Here i take some information and store in Python Dictionary and then display information</td>
+        <td><a class="btn btn-primary active btn-sm" aria-current="page" href="{% url 'TestViewClass_6' %}">View-6</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-primary">9</th>
+        <td class="text-primary"><b>Class base View</b></td>
+        <td>Here i take Dictiniary Key and Value and display thos</td>
+        <td><a class="btn btn-primary active btn-sm" aria-current="page" href="{% url 'TestViewClass_7' %}">View-7</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-primary">10</th>
+        <td class="text-primary"><b>Class base View</b></td>
+        <td>Here i take Multiple Key and Value in Dictiniary and display thos</td>
+        <td><a class="btn btn-primary active btn-sm" aria-current="page" href="{% url 'MyView' %}">View-8</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-info" >11</th>
+        <td class="text-info" ><b>TemplateView</b></td>
+        <td>html pass from url as_view()</td>
+        <td><a class="btn btn-info active btn-sm" aria-current="page" href="{% url 'templateview_1' %}">TempView-1</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-info" >12</th>
+        <td class="text-info" ><b>TemplateView</b></td>
+        <td>html pass on class</td>
+        <td><a class="btn btn-info active btn-sm" aria-current="page" href="{% url 'templateview_2' %}">TempView-2</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-info" >13</th>
+        <td class="text-info" ><b>TemplateView</b></td>
+        <td>Import Student Tabil from app and display the informations</td>
+        <td><a class="btn btn-info active btn-sm" aria-current="page" href="{% url 'templateview_3' %}">TempView-3</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-info" >14</th>
+        <td class="text-info" ><b>TemplateView</b></td>
+        <td>Pass a id by { url 'templateview_4' 25 } manually and Show the Student table information</td>
+        <td><a class="btn btn-info active btn-sm" aria-current="page" href="{% url 'templateview_4' 25 %}">TempView-4</a></td>
+      </tr>
+
+
+      <tr>
+        <th scope="row" class="text-success">15</th>
+        <td class="text-success"><b>RedirectView</b></td>
+        <td>Redirect in DIU web page from auccessrl)</td>
+        <td><a class="btn btn-success active btn-sm" aria-current="page" href="{% url 'RedirectView_1' %}">RedirectView-1</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-success">16</th>
+        <td class="text-success"><b>RedirectView</b></td>
+        <td>Redirect in DIU web page from cuccessl)</td>
+        <td><a class="btn btn-success active btn-sm" aria-current="page" href="{% url 'RedirectView_2' %}">RedirectView-2</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-success">17</th>
+        <td class="text-success"><b>RedirectView</b></td>
+        <td>Redirect in Generic DisplayViewuccessyer List (url)</td>
+        <td><a class="btn btn-success active btn-sm" aria-current="page" href="{% url 'RedirectView_3' %}">RedirectView-3</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-success">18</th>
+        <td class="text-success"><b>RedirectView</b></td>
+        <td>Redirect in Generic DisplayViewuccessyer List by pattern_name</td>
+        <td><a class="btn btn-success active btn-sm" aria-current="page" href="{% url 'RedirectView_4' %}">RedirectView-4</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-success">19</th>
+        <td class="text-success"><b>RedirectView</b></td>
+        <td>Redirect in Generic DisplayViewuccessyer List pass form as_view(pattern_name)</td>
+        <td><a class="btn btn-success active btn-sm" aria-current="page" href="{% url 'RedirectView_5' %}">RedirectView-5</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-success">20</th>
+        <td class="text-success"><b>RedirectView</b></td>
+        <td>Here i pass a id by url like { uccessirectView_6' 15 } and it go to anothr class and return all data</td>
+        <td><a class="btn btn-success active btn-sm" aria-current="page" href="{% url 'RedirectView_6' 15 %}">RedirectView-6</a></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-success">21</th>
+        <td class="text-success"><b>RedirectView</b></td>
+        <td>Here i pass a slug by url like uccessedirectView_6' intel-cor-i7-8700k } and it go to anothr class and return all data</td>
+        <td><a class="btn btn-success active btn-sm" aria-current="page" href="{% url 'RedirectView_7' 'intel-cor-i7-8700k' %}">RedirectView-7</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+{% endblock body %}
